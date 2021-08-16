@@ -80,12 +80,12 @@ Ways to set the `visible` parameter:
 
 1. For the api needs no parameter: by adding 'visible' parameter in the url
 
-        http://127.0.0.1:8090/wallet/listexchanges?visible=true
+        https://api.acscan.net/wallet/listexchanges?visible=true
 
 2. For POST method api: By adding 'visible' parameter to the most out layer of the json
 
     ```console
-    $ curl -X POST http://127.0.0.1:8090/wallet/createtransaction -d
+    $ curl -X POST https://api.acscan.net/wallet/createtransaction -d
     '{
         "owner_address": "TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ",
         "to_address": "TJCnKsPa7y5okkXvQAidZBzqx3QyQ6sxMW",
@@ -104,7 +104,7 @@ SolidityNode api's default HTTP port is 8091, when solidityNode is started, http
 
 Description: Query an account information
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getaccount -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getaccount -d
 '{
     "address": "41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"
 }'
@@ -118,7 +118,7 @@ Return: Account object
 
 Description: Qyery the list of the witnesses
 ```console
-$ curl -X GET  http://127.0.0.1:8091/walletsolidity/listwitnesses
+$ curl -X GET  https://api.acscan.net/walletsolidity/listwitnesses
 ```
 
 Parameter: No parameter
@@ -129,7 +129,7 @@ Return: The list of all the witnesses
 
 Description: Query the list of all the tokens
 ```console
-$ curl -X GET  http://127.0.0.1:8091/walletsolidity/getassetissuelist
+$ curl -X GET  https://api.acscan.net/walletsolidity/getassetissuelist
 ```
 
 Parameter: No parameter
@@ -140,7 +140,7 @@ Return: The list of all the tokens
 
 Description: Query the list of all the tokens by pagination
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getpaginatedassetissuelist -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getpaginatedassetissuelist -d
 '{
     "offset": 0,
     "limit": 10
@@ -157,7 +157,7 @@ Return: The list of tokens by pagination
 
 Description: Query a token by token name
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getassetissuebyname -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyname -d
 '{
     "value": "44756354616E"
 }'
@@ -173,7 +173,7 @@ Note: Since Odyssey-v3.2, getassetissuebyid or getassetissuelistbyname is recomm
 
 Description: Query the list of tokens by name
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getassetissuelistbyname -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuelistbyname -d
 '{
     "value": "44756354616E"
 }'
@@ -187,7 +187,7 @@ Return: The list of tokens
 
 Description: Query a token by token id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getassetissuebyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyid -d
 '{
     "value": "1000001"
 }'
@@ -201,7 +201,7 @@ Return: Token object
 
 Description: Query the latest block information
 ```console
-$ curl -X GET  http://127.0.0.1:8091/walletsolidity/getnowblock
+$ curl -X GET  https://api.acscan.net/walletsolidity/getnowblock
 ```
 
 Parameter: No parameter
@@ -212,7 +212,7 @@ Return: the latest block from solidityNode
 
 Description: Query a block information by block height
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getblockbynum -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbynum -d
 '{
     "num": 100
 }'
@@ -226,7 +226,7 @@ Return: Block information
 
 Description: Query an transaction infromation by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/gettransactionbyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -240,7 +240,7 @@ Return: Transaction information
 
 Description: Query th the number of transactions in a specific block
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/gettransactioncountbyblocknum -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioncountbyblocknum -d
 '{
     "num": 100
 }'
@@ -254,7 +254,7 @@ Return: The number of transactions
 
 Description: Query the list of transaction information in a specific block
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/gettransactioninfobyblocknum -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyblocknum -d
 '{
     "num": 100
 }'
@@ -268,7 +268,7 @@ Return: The list of transaction information
 
 Description: Query the transaction fee, block height by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/gettransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -282,7 +282,7 @@ Return: Transaction fee & block height
 
 Description: Query the energy delegation information
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getdelegatedresource -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresource -d
 '{
     "fromAddress": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "toAddress": "41c6600433381c731f22fc2b9f864b14fe518b322f"
@@ -299,7 +299,7 @@ Return: Energy delegation information
 
 Description: Query the energy delegation index by an account
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getdelegatedresourceaccountindex -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresourceaccountindex -d
 '{
     "value": "419844f7600e018fd0d710e2145351d607b3316ce9"
 }'
@@ -313,7 +313,7 @@ Return: Energy delegation index
 
 Description: Query an exchange pair by exchange pair id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getexchangebyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getexchangebyid -d
 '{
     "id": 1
 }'
@@ -327,7 +327,7 @@ Return: Exchange pair object
 
 Description: Query the list of all the exchange pairs
 ```console
-$ curl -X GET  http://127.0.0.1:8091/walletsolidity/listexchanges
+$ curl -X GET  https://api.acscan.net/walletsolidity/listexchanges
 ```
 
 Parameter: No parameter
@@ -338,7 +338,7 @@ Return: The list of all the exchange pairs
 
 Description: Query an account information by account id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getaccountbyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getaccountbyid -d
 '{
     "account_id": "6161616162626262"
 }'
@@ -352,7 +352,7 @@ Return: Account object
 
 Description: Query a block information by block id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getblockbyid-d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbyid-d
 '{
     "value": "0000000000038809c59ee8409a3b6c051e369ef1096603c7ee723c16e2376c73"
 }'
@@ -366,7 +366,7 @@ Return: Block object
 
 Description: Query a list of blocks by range
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getblockbylimitnext -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbylimitnext -d
 '{
     "startNum": 1,
     "endNum": 2
@@ -383,7 +383,7 @@ Return: The list of the blocks
 
 Description: Query the several latest blocks
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getblockbylatestnum -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbylatestnum -d
 '{
     "num": 5
 }'
@@ -397,7 +397,7 @@ Return: The list of the blocks
 
 Description: Query the transactions initiated by an account
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletextension/gettransactionsfromthis -d
+$ curl -X POST  https://api.acscan.net/walletextension/gettransactionsfromthis -d
 '{
     "account": {
         "address": "41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"
@@ -427,7 +427,7 @@ Note: This api is no longer supported in the latest version, you can use the cen
 
 Description: Query the transactions received by an account
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletextension/gettransactionstothis -d
+$ curl -X POST  https://api.acscan.net/walletextension/gettransactionstothis -d
 '{
     "account": {
         "address": "41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"
@@ -457,7 +457,7 @@ Note: This api is no longer supported in the latest version, you can use the cen
 
 Description: Query the current node infromation
 ```console
-$ curl -X GET http://127.0.0.1:8091/wallet/getnodeinfo
+$ curl -X GET https://api.acscan.net/wallet/getnodeinfo
 ```
 
 Parameter: No parameter
@@ -468,7 +468,7 @@ Return: The node information
 
 Description: Query the deferred transaction infromation by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getdeferredtransactionbyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -482,7 +482,7 @@ Return: Deferred transaction object
 
 Description: Query the deferred transaction fee, block height by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8091/walletsolidity/getdeferredtransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -496,7 +496,7 @@ Return: Deferred transaction fee & block height
 
 Description: To get a merkle tree infromation of a note
 ```console
-$ curl -X POST  http://127.0.0.1:8090/walletsolidity/getmerkletreevoucherinfo -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/getmerkletreevoucherinfo -d
 '{
     "out_points":[{
         "hash":"185b3e085723f5862b3a3c3cf54d52f5c1eaf2541e3a1e0ecd08bc12cd958d74",
@@ -513,7 +513,7 @@ Return: A merkle tree of a note
 
 Description: To get all the notes by ivk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/walletsolidity/scannotebyivk -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/scannotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -535,7 +535,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To get all the notes with spent status by ivk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/walletsolidity/scanandmarknotebyivk -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/scanandmarknotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -563,7 +563,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To get all the notes by ovk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/walletsolidity/scannotebyovk -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/scannotebyovk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -585,7 +585,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To check whether a note is spent or not
 ```console
-$ curl -X POST  http://127.0.0.1:8090/walletsolidity/isspend -d
+$ curl -X POST  https://api.acscan.net/walletsolidity/isspend -d
 '{
     "ak": "a3e65d509b675aaa2aeda977ceff11eebd76218079b6f543d78a615e396ca129",
     "nk": "62cfda9bea09a53cf2a21022057913734a8458969e11e0bb9c59ead48fbce83e",
@@ -615,7 +615,7 @@ Return: Note status
 
 Description: scan the shielded TRC-20 notes by ivk and mark their status of whether spent
 ```console
-demo: curl -X POST  http://127.0.0.1:8091/walletsolidity/scanshieldedtrc20notesbyivk -d
+demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyivk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -649,7 +649,7 @@ Note: block limit（end_block_index - start_block_index <= 1000）
 
 Description: scan the shielded TRC-20 notes by ovk
 ```console
-demo: curl -X POST  http://127.0.0.1:8091/walletsolidity/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -675,7 +675,7 @@ Note: block limit（end_block_index - start_block_index <= 1000）
 - /walletsolidity/isshieldedtrc20contractnotespent
 Description: check the status whether the specified shielded TRC-20 note is spent
 ```console
-demo: curl -X POST  http://127.0.0.1:8091/walletsolidity/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d
 '{
    "note": {
        "value": 40,
@@ -714,7 +714,7 @@ FullNode api's default http port is 8090, when FullNode is started, http service
 
 Description: Create a transfer transaction, if to address is not existed, then create the account on the blockchain
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createtransaction -d
+$ curl -X POST  https://api.acscan.net/wallet/createtransaction -d
 '{
     "to_address": "41e9d79cc47518930bc322d9bf7cddd260a0260a8d",
     "owner_address": "41D1E7A6BC354106CB410E65FF8B181C600FF14292",
@@ -736,7 +736,7 @@ Return: Transaction object
 
 Description: To sign a transaction
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/gettransactionsign -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactionsign -d
 '{
     "transaction": {
         "txID": "454f156bf1256587ff6ccdbc56e64ad0c51e4f8efea5490dcbc720ee606bc7b8",
@@ -776,7 +776,7 @@ Note: Using this api may leak out private key, please ensure using this api in a
 
 Description: Broadcast transaction after sign
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/broadcasttransaction -d
+$ curl -X POST  https://api.acscan.net/wallet/broadcasttransaction -d
 '{
     "signature": [
         "97c825b41c77de2a8bd65b3df55cd4c0df59c307c0187e42321dcc1cc455ddba583dd9502e17cfec5945b34cad0511985a6165999092a6dec84c2bdd97e649fc01"
@@ -812,7 +812,7 @@ Return: The result of the broadcast
 
 Description: Broadcast transaction hex string after sign
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/broadcasthex -d
+$ curl -X POST  https://api.acscan.net/wallet/broadcasthex -d
 '{
    "transaction":"0A8A010A0202DB2208C89D4811359A28004098A4E0A6B52D5A730802126F0A32747970652E676F6F676C65617069732E636F6D2F70726F746F636F6C2E5472616E736665724173736574436F6E747261637412390A07313030303030311215415A523B449890854C8FC460AB602DF9F31FE4293F1A15416B0580DA195542DDABE288FEC436C7D5AF769D24206412418BF3F2E492ED443607910EA9EF0A7EF79728DAAAAC0EE2BA6CB87DA38366DF9AC4ADE54B2912C1DEB0EE6666B86A07A6C7DF68F1F9DA171EEE6A370B3CA9CBBB00"
 }'
@@ -826,7 +826,7 @@ Return: The result of the broadcast
 
 Description: Update the name of an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/updateaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/updateaccount -d
 '{
     "account_name": "0x7570646174654e616d6531353330383933343635353139",
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292"
@@ -845,7 +845,7 @@ Return: Transaction object
 
 Description: Vote for witnesses
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/votewitnessaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/votewitnessaccount -d
 '{
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292",
     "votes": [
@@ -869,7 +869,7 @@ Return: Transaction object
 
 Description: Query the ratio of brokerage of the witness
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getBrokerage -d '{
+$ curl -X GET  https://api.acscan.net/wallet/getBrokerage -d '{
 "address":"41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"}'
 ```
 
@@ -882,7 +882,7 @@ Return: The ratio of brokerage of the witness
 Description: Query unclaimed reward
 ```console
 $ curl -X GET
-http://127.0.0.1:8090/wallet/getReward -d '{
+https://api.acscan.net/wallet/getReward -d '{
 "address":"41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"}'
 ```
 
@@ -894,7 +894,7 @@ Return: Unclaimed reward
 
 Description: Update the ratio of brokerage
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/updateBrokerage  -d '{
+$ curl -X POST  https://api.acscan.net/wallet/updateBrokerage  -d '{
 "owner_address":"41E552F6487585C2B58BC2C9BB4492BC1F17132CD0",
 "brokerage":30
 }'
@@ -912,7 +912,7 @@ Return: Transaction object
 Description： Get the account balance in a specific block.
 
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getaccountbalance -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccountbalance -d
 '{
     "account_identifier": {
         "address": "TLLM21wteSPs4hKjbxgmH1L6poyMjeTbHm"
@@ -932,7 +932,7 @@ Return: The balance object of the account in a specific block, the `block_identi
 
 Description: Issue a token
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createassetissue -d
+$ curl -X POST  https://api.acscan.net/wallet/createassetissue -d
 '{
     "owner_address": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0",
     "name": "0x6173736574497373756531353330383934333132313538",
@@ -989,7 +989,7 @@ Note: The unit of 'trx_num' is SUN
 
 Description: Update the witness' website url
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/updatewitness -d
+$ curl -X POST  https://api.acscan.net/wallet/updatewitness -d
 '{
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292",
     "update_url": "007570646174654e616d6531353330363038383733343633"
@@ -1008,7 +1008,7 @@ Return: Transaction object
 
 Description: Create an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/createaccount -d
 '{
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292",
     "account_address": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0"
@@ -1029,7 +1029,7 @@ Note: It costs 0.1 TRX
 
 Description: Apply to become a witness
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createwitness -d
+$ curl -X POST  https://api.acscan.net/wallet/createwitness -d
 '{
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292",
     "url": "007570646174654e616d6531353330363038383733343633"
@@ -1048,7 +1048,7 @@ Return: Transaction object
 
 Description: Transfer token
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/transferasset -d
+$ curl -X POST  https://api.acscan.net/wallet/transferasset -d
 '{
     "owner_address": "41d1e7a6bc354106cb410e65ff8b181c600ff14292",
     "to_address": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0",
@@ -1075,7 +1075,7 @@ Note: The unit of 'amount' is the smallest unit of the token
 
 Description: Easy transfer
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/easytransfer -d
+$ curl -X POST https://api.acscan.net/wallet/easytransfer -d
 '{
     "passPhrase": "your password",
     "toAddress": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0",
@@ -1097,7 +1097,7 @@ Note: Using this api may leak out private key, please ensure using this api in a
 
 Description: Easy token transfer
 ```console
-demo：curl -X POST http://127.0.0.1:8090/wallet/easytransferasset -d
+demo：curl -X POST https://api.acscan.net/wallet/easytransferasset -d
 '{
     "passPhrase": "your password",
     "toAddress": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0",
@@ -1123,7 +1123,7 @@ The unit of 'amount' is the smallest unit of the token
 
 Description: Create an address with a password
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/createaddress -d
+$ curl -X POST https://api.acscan.net/wallet/createaddress -d
 '{
     "value": "3230313271756265696a696e67"
 }'
@@ -1139,7 +1139,7 @@ Note: Using this api may leak out private key, please ensure using this api in a
 
 Description: Participate a token
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/participateassetissue -d
+$ curl -X POST https://api.acscan.net/wallet/participateassetissue -d
 '{
     "to_address": "41e552f6487585c2b58bc2c9bb4492bc1f17132cd0",
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1",
@@ -1166,7 +1166,7 @@ Note: The unit of 'amount' is the smallest unit of the token
 
 Description: Stake TRX
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/freezebalance -d
+$ curl -X POST https://api.acscan.net/wallet/freezebalance -d
 '{
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1",
     "frozen_balance": 10000,
@@ -1194,7 +1194,7 @@ Return: Transaction object
 
 Description: Unstake the staked TRX that is due
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/unfreezebalance -d
+$ curl -X POST https://api.acscan.net/wallet/unfreezebalance -d
 '{
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1",
     "resource": "BANDWIDTH",
@@ -1216,7 +1216,7 @@ Return: Transaction object
 
 Description: Unstake the staked token that is due
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/unfreezeasset -d
+$ curl -X POST https://api.acscan.net/wallet/unfreezeasset -d
 '{
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1"
 }'
@@ -1232,7 +1232,7 @@ Return: Transaction object
 
 Description: Withdraw reward to account balance for witnesses
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/withdrawbalance -d
+$ curl -X POST https://api.acscan.net/wallet/withdrawbalance -d
 '{
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1"
 }'
@@ -1250,7 +1250,7 @@ Note: It can only withdraw once for every 24 hours
 
 Description: Update token information
 ```console
-$ curl -X POST http://127.0.0.1:8090/wallet/updateasset -d
+$ curl -X POST https://api.acscan.net/wallet/updateasset -d
 '{
     "owner_address": "41e472f387585c2b58bc2c9bb4492bc1f17342cd1",
     "description": "",
@@ -1278,7 +1278,7 @@ Return: Transaction object
 
 Description: Query the list of nodes connected to the ip of the api
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/listnodes
+$ curl -X GET  https://api.acscan.net/wallet/listnodes
 ```
 
 Parameter: No parameter
@@ -1289,7 +1289,7 @@ Return: The list of nodes
 
 Description: Query the token issue information of an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getassetissuebyaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuebyaccount -d
 '{
     "address": "41F9395ED64A6E1D4ED37CD17C75A1D247223CAF2D"
 }'
@@ -1303,7 +1303,7 @@ Return: Token object
 
 Description: Query the bandwidth information of an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getaccountnet -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccountnet -d
 '{
     "address": "4112E621D5577311998708F4D7B9F71F86DAE138B5"
 }'
@@ -1317,7 +1317,7 @@ Return: Bandwidth information
 
 Description: Query a token by token name
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getassetissuebyname -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuebyname -d
 '{
     "value": "44756354616E"
 }'
@@ -1333,7 +1333,7 @@ Note: Since Odyssey-v3.2, getassetissuebyid or getassetissuelistbyname is recomm
 
 Description: Query the list of tokens by name
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getassetissuelistbyname -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuelistbyname -d
 '{
     "value": "44756354616E"
 }'
@@ -1347,7 +1347,7 @@ Return: The list of tokens
 
 Description: Query a token by token id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getassetissuebyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuebyid -d
 '{
     "value": "1000001"
 }'
@@ -1361,7 +1361,7 @@ Return: Token object
 
 Description: Query the latest block information
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getnowblock
+$ curl -X GET  https://api.acscan.net/wallet/getnowblock
 ```
 
 Parameter: No parameter
@@ -1372,7 +1372,7 @@ Return: The latest block
 
 Description: Query a block information by block height
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getblockbynum -d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbynum -d
 '{
     "num": 1
 }'
@@ -1386,7 +1386,7 @@ Return: Block information
 
 Description: Query a block information by block id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getblockbyid-d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbyid-d
 '{
     "value": "0000000000038809c59ee8409a3b6c051e369ef1096603c7ee723c16e2376c73"
 }'
@@ -1413,7 +1413,7 @@ Return: The list of the blocks
 
 Description: Query the several latest blocks
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getblockbylatestnum -d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbylatestnum -d
 '{
     "num": 5
 }'
@@ -1427,7 +1427,7 @@ Return: The list of the blocks
 
 Description：Get all balance change operations in a block.
 ```json
-demo: curl -X POST  http://127.0.0.1:8090/wallet/getblockbalance -d
+demo: curl -X POST  https://api.acscan.net/wallet/getblockbalance -d
 '{
     "hash": "000000000000dc2a3731e28a75b49ac1379bcc425afc95f6ab3916689fbb0189",
     "number": 56362,
@@ -1444,7 +1444,7 @@ Return : The balance changes object.
 
 Description: Query an transaction infromation by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/gettransactionbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -1458,7 +1458,7 @@ Return: Transaction information
 
 Description: Query the transaction fee, block height by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/gettransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -1472,7 +1472,7 @@ Return: Transaction fee & block height
 
 Description: Query th the number of transactions in a specific block
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/gettransactioncountbyblocknum -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioncountbyblocknum -d
 '{
     "num": 100
 }'
@@ -1486,7 +1486,7 @@ Return: The number of transactions
 
 Description: Query the list of transaction information in a specific block
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/gettransactioninfobyblocknum -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyblocknum -d
 '{
     "num": 100
 }'
@@ -1500,7 +1500,7 @@ Return: The list of transaction information
 
 Description: Query an account information
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccount -d
 '{
     "address": "41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"
 }'
@@ -1514,7 +1514,7 @@ Return: Account object
 
 Description: Qyery the list of the witnesses
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/listwitnesses
+$ curl -X GET  https://api.acscan.net/wallet/listwitnesses
 ```
 
 Parameter: No parameter
@@ -1525,7 +1525,7 @@ Return: The list of all the witnesses
 
 Description: Query the list of all the tokens
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getassetissuelist
+$ curl -X GET  https://api.acscan.net/wallet/getassetissuelist
 ```
 
 Parameter: No parameter
@@ -1536,7 +1536,7 @@ Return: The list of all the tokens
 
 Description: Query the list of all the tokens by pagination
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getpaginatedassetissuelist -d
+$ curl -X POST  https://api.acscan.net/wallet/getpaginatedassetissuelist -d
 '{
     "offset": 0,
     "limit": 10
@@ -1553,7 +1553,7 @@ Return: The list of tokens by pagination
 
 Description: Query the list of all the proposals by pagination
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getpaginatedproposallist -d
+$ curl -X POST  https://api.acscan.net/wallet/getpaginatedproposallist -d
 '{
     "offset": 0,
     "limit": 10
@@ -1570,7 +1570,7 @@ Return: The list of proposals by pagination
 
 Description: Query the list of all the exchange pairs by pagination
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getpaginatedexchangelist -d
+$ curl -X POST  https://api.acscan.net/wallet/getpaginatedexchangelist -d
 '{
     "offset": 0,
     "limit": 10
@@ -1587,7 +1587,7 @@ Return: The list of exchange pairs by pagination
 
 Description: Query the time interval till the next vote round
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getnextmaintenancetime
+$ curl -X GET  https://api.acscan.net/wallet/getnextmaintenancetime
 ```
 
 Parameter: No parameter
@@ -1598,7 +1598,7 @@ Return: The time interval till the next vote round(unit: ms)
 
 Description: TRX Easy transfer
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/easytransferbyprivate -d
+$ curl -X POST  https://api.acscan.net/wallet/easytransferbyprivate -d
 '{
     "privateKey": "D95611A9AF2A2A45359106222ED1AFED48853D9A44DEFF8DC7913F5CBA727366",
     "toAddress": "4112E621D5577311998708F4D7B9F71F86DAE138B5",
@@ -1620,7 +1620,7 @@ Note: Using this api may leak out private key, please ensure using this api in a
 
 Description: Token easy transfer
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/easytransferassetbyprivate -d
+$ curl -X POST  https://api.acscan.net/wallet/easytransferassetbyprivate -d
 '{
     "privateKey": "D95611A9AF2A2A45359106222ED1AFED48853D9A44DEFF8DC7913F5CBA727366",
     "toAddress": "4112E621D5577311998708F4D7B9F71F86DAE138B5",
@@ -1646,7 +1646,7 @@ The unit of 'amount' is the smallest unit of the token
 
 Description: Generate address and private key
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/generateaddress
+$ curl -X GET  https://api.acscan.net/wallet/generateaddress
 ```
 
 Parameter: No parameter
@@ -1659,7 +1659,7 @@ Note: Using this api may leak out private key, please ensure using this api in a
 
 Description: Check the validity of the address
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/validateaddress -d
+$ curl -X POST  https://api.acscan.net/wallet/validateaddress -d
 '{
     "address": "4189139CB1387AF85E3D24E212A008AC974967E561"
 }'
@@ -1671,7 +1671,7 @@ Return: The check result
 
 Description: Deploy a smart contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/deploycontract -d
+$ curl -X POST  https://api.acscan.net/wallet/deploycontract -d
 '{
     "abi": "[{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"uint256\"},{\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"value\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]",
     "bytecode": "608060405234801561001057600080fd5b5060de8061001f6000396000f30060806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631ab06ee58114604d5780639507d39a146067575b600080fd5b348015605857600080fd5b506065600435602435608e565b005b348015607257600080fd5b50607c60043560a0565b60408051918252519081900360200190f35b60009182526020829052604090912055565b600090815260208190526040902054905600a165627a7a72305820fdfe832221d60dd582b4526afa20518b98c2e1cb0054653053a844cf265b25040029",
@@ -1717,7 +1717,7 @@ Note: The unit of TRX in the parameters is SUN
 
 Description: Trigger smart contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/triggersmartcontract -d
+$ curl -X POST  https://api.acscan.net/wallet/triggersmartcontract -d
 '{
     "contract_address": "4189139CB1387AF85E3D24E212A008AC974967E561",
     "function_selector": "set(uint256,uint256)",
@@ -1754,7 +1754,7 @@ Note: The unit of TRX in the parameters is SUN
 
 Description: Query a contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getcontract -d
+$ curl -X POST  https://api.acscan.net/wallet/getcontract -d
 '{
     "value": "4189139CB1387AF85E3D24E212A008AC974967E561"
 }'
@@ -1768,7 +1768,7 @@ Return: Smart contract object
 
 Description: Create a proposal
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/proposalcreate -d
+$ curl -X POST  https://api.acscan.net/wallet/proposalcreate -d
 '{
     "owner_address": "419844F7600E018FD0D710E2145351D607B3316CE9",
     "parameters": [
@@ -1796,7 +1796,7 @@ Return: Transaction object
 
 Description: Query a proposal by proposal id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getproposalbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getproposalbyid -d
 '{
     "id": 1
 }'
@@ -1810,7 +1810,7 @@ Return: The proposal information
 
 Description: Query all the proposals
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/listproposals
+$ curl -X POST  https://api.acscan.net/wallet/listproposals
 ```
 
 Parameter: No parameter
@@ -1821,7 +1821,7 @@ Return: The list of all the proposals
 
 Description: To approve a proposal
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/proposalapprove -d
+$ curl -X POST  https://api.acscan.net/wallet/proposalapprove -d
 '{
     "owner_address": "419844F7600E018FD0D710E2145351D607B3316CE9",
     "proposal_id": 1,
@@ -1843,7 +1843,7 @@ Return: Transaction object
 
 Description: To delete a proposal
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/proposaldelete -d
+$ curl -X POST  https://api.acscan.net/wallet/proposaldelete -d
 '{
     "owner_address": "419844F7600E018FD0D710E2145351D607B3316CE9",
     "proposal_id": 1
@@ -1862,7 +1862,7 @@ Return: Transaction object
 
 Description: Query the resource information of an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getaccountresource -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccountresource -d
 '{
     "address": "419844f7600e018fd0d710e2145351d607b3316ce9"
 }'
@@ -1876,7 +1876,7 @@ Return: The resource information
 
 Description: Create an exchange pair
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/exchangecreate -d
+$ curl -X POST  https://api.acscan.net/wallet/exchangecreate -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "first_token_id": "token_a",
@@ -1904,7 +1904,7 @@ Note: The unit of 'first_token_balance' and 'second_token_balance' is the smalle
 
 Description: Inject funds for exchange pair
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/exchangeinject -d
+$ curl -X POST  https://api.acscan.net/wallet/exchangeinject -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "exchange_id": 1,
@@ -1931,7 +1931,7 @@ Note: The unit of 'quant' is the smallest unit of the token
 
 Description: Withdraw from exchange pair
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/exchangewithdraw -d
+$ curl -X POST  https://api.acscan.net/wallet/exchangewithdraw -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "exchange_id": 1,
@@ -1958,7 +1958,7 @@ Note: The unit of 'quant' is the smallest unit of the token
 
 Description: Participate the transaction of exchange pair
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/exchangetransaction -d
+$ curl -X POST  https://api.acscan.net/wallet/exchangetransaction -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "exchange_id": 1,
@@ -1988,7 +1988,7 @@ Note: The unit of 'quant' and 'expected' is the smallest unit of the token
 
 Description: Query an exchange pair by exchange pair id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getexchangebyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getexchangebyid -d
 '{
     "id": 1
 }'
@@ -2002,7 +2002,7 @@ Return: Exchange pair information
 
 Description: Query the list of all the exchange pairs
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/listexchanges
+$ curl -X GET  https://api.acscan.net/wallet/listexchanges
 ```
 
 Parameter: No parameter
@@ -2013,7 +2013,7 @@ Return: The list of all the exchange pairs
 
 Description: Query the parameters of the blockchain used for witnessses to create a proposal
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getchainparameters
+$ curl -X GET  https://api.acscan.net/wallet/getchainparameters
 ```
 
 Parameter: No parameter
@@ -2024,7 +2024,7 @@ Return: The list of parameters of the blockchain
 
 Description: Update the consume_user_resource_percent parameter of a smart contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/updatesetting -d
+$ curl -X POST  https://api.acscan.net/wallet/updatesetting -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "contract_address": "41c6600433381c731f22fc2b9f864b14fe518b322f",
@@ -2046,7 +2046,7 @@ Return: Transaction object
 
 Description: Update the origin_energy_limit parameter of a smart contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/updatesetting -d
+$ curl -X POST  https://api.acscan.net/wallet/updatesetting -d
 '{
     "owner_address": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "contract_address": "41c6600433381c731f22fc2b9f864b14fe518b322f",
@@ -2068,7 +2068,7 @@ Return: Transaction object
 
 Description: Query the energy delegation information
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getdelegatedresource -d
+$ curl -X POST  https://api.acscan.net/wallet/getdelegatedresource -d
 '{
     "fromAddress": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "toAddress": "41c6600433381c731f22fc2b9f864b14fe518b322f"
@@ -2085,7 +2085,7 @@ Return: Energy delegation information
 
 Description: Query the energy delegation index by an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getdelegatedresourceaccountindex -d
+$ curl -X POST  https://api.acscan.net/wallet/getdelegatedresourceaccountindex -d
 '{
     "value": "419844f7600e018fd0d710e2145351d607b3316ce9"
 }'
@@ -2099,7 +2099,7 @@ Return: Energy delegation index
 
 Description: Query the current node infromation
 ```console
-$ curl -X GET http://127.0.0.1:8090/wallet/getnodeinfo
+$ curl -X GET https://api.acscan.net/wallet/getnodeinfo
 ```
 
 Parameter: No Parameter
@@ -2110,7 +2110,7 @@ Return: The node information
 
 Description: To set an account id for an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/setaccountid -d
+$ curl -X POST  https://api.acscan.net/wallet/setaccountid -d
 '{
     "owner_address": "41a7d8a35b260395c14aa456297662092ba3b76fc0",
     "account_id": "6161616162626262"
@@ -2127,7 +2127,7 @@ Return: Transaction object
 
 Description: Query an account information by account id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getaccountbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccountbyid -d
 '{
     "account_id": "6161616162626262"
 }'
@@ -2142,7 +2142,7 @@ Return: Account object
 
 Description: Query the deferred transaction infromation by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getdeferredtransactionbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getdeferredtransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -2156,7 +2156,7 @@ Return: Deferred transaction object
 
 Description: Query a deferred transaction by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/canceldeferredtransactionbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/canceldeferredtransactionbyid -d
 '{
     "transactionId": "34e6b6497b71100756790a7f20cd729376768dd2bebb6a4a9c5e87b920d5de10",
     "ownerAddress": "41a7d8a35b260395c14aa456297662092ba3b76fc0"
@@ -2173,7 +2173,7 @@ Return: Transaction object
 
 Description: Query the deferred transaction fee, block height by transaction id
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getdeferredtransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getdeferredtransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -2187,7 +2187,7 @@ Return: Deferred transaction fee & block height
 
 Description: Trigger the constant of the smart contract, the transaction is off the blockchain
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/triggerconstantcontract -d
+$ curl -X POST  https://api.acscan.net/wallet/triggerconstantcontract -d
 '{
     "contract_address": "4189139CB1387AF85E3D24E212A008AC974967E561",
     "function_selector": "set(uint256,uint256)",
@@ -2220,7 +2220,7 @@ Note: The unit of TRX in the parameters is SUN
 
 Description: To clear the abi of a smart contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/clearabi -d
+$ curl -X POST  https://api.acscan.net/wallet/clearabi -d
 '{
     "owner_address": "41a7d8a35b260395c14aa456297662092ba3b76fc0",
     "contract_address": "417bcb781f4743afaacf9f9528f3ea903b3782339f"
@@ -2237,7 +2237,7 @@ Return: Transaction object
 
 Description: To sign the transaction of trigger constant contract
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/addtransactionsign -d
+$ curl -X POST  https://api.acscan.net/wallet/addtransactionsign -d
 '{
     "owner_address": "41a7d8a35b260395c14aa456297662092ba3b76fc0",
     "contract_address": "417bcb781f4743afaacf9f9528f3ea903b3782339f"
@@ -2254,7 +2254,7 @@ Return: Transaction object after sign
 
 Description: Query the current signatures total weight of a transaction after sign
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getsignweight -d
+$ curl -X POST  https://api.acscan.net/wallet/getsignweight -d
 '{
     "visible": true,
     "signature": [
@@ -2293,7 +2293,7 @@ Return: The current signatures total weight
 
 Description: Query the signatures list of a transaction after sign
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getapprovedlist -d
+$ curl -X POST  https://api.acscan.net/wallet/getapprovedlist -d
 '{
     "visible": true,
     "signature": [
@@ -2332,7 +2332,7 @@ Return: The list of the signatures
 
 Description: To set multi-signature for an account
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/accountpermissionupdate -d
+$ curl -X POST  https://api.acscan.net/wallet/accountpermissionupdate -d
 '{
     "owner_address": "TRGhNNfnmgLegT4zHNjEqDSADjgmnHvubJ",
     "owner": {
@@ -2393,7 +2393,7 @@ Return: Transaction object
 
 Description: To get expanded spending keys from spending key
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getexpandedspendingkey -d
+$ curl -X POST  https://api.acscan.net/wallet/getexpandedspendingkey -d
 '{
     "value": "06b02aaa00f230b0887ff57a6609d76691369972ac3ba568fe7a8a0897fce7c4"
 }'
@@ -2407,7 +2407,7 @@ Return: Expanded spending keys, it consists of three keys: ask, nsk and ovk.
 
 Description: To get ak key from ask key
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getakfromask -d
+$ curl -X POST  https://api.acscan.net/wallet/getakfromask -d
 '{
     "value": "653b3a3fdd40b60d2f53ba121df8840f6590384993f8fa9a0ecb0dfb23496604"
 }'
@@ -2421,7 +2421,7 @@ Return: Ak key
 
 Description: To get nk key from nsk key
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getnkfromnsk -d
+$ curl -X POST  https://api.acscan.net/wallet/getnkfromnsk -d
 '{
     "value": "428ff3c9e101dc1fca08f7b0e3387b23b68016746ae565aefc19d112b696db01"
 }'
@@ -2435,7 +2435,7 @@ Return: Nk key
 
 Description: To get spending key
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getspendingkey
+$ curl -X GET  https://api.acscan.net/wallet/getspendingkey
 ```
 
 Parameter: No Parameter
@@ -2446,7 +2446,7 @@ Return: Spending key
 
 Description: To get diversifier
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getdiversifier
+$ curl -X GET  https://api.acscan.net/wallet/getdiversifier
 ```
 
 Parameter: No Parameter
@@ -2457,7 +2457,7 @@ Return: Diversifier
 
 Description: To get incoming viewing key
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getincomingviewingkey -d
+$ curl -X POST  https://api.acscan.net/wallet/getincomingviewingkey -d
 '{
   "ak":"b443f1a303ef5837ba95750b48b6fef15f9c77f63a8c28c161bcd6613f423b5c",
     "nk":"632137e69179df3d10e252fcce85d13464c3163fe7a619edf8d43ebefa8162d9"
@@ -2474,7 +2474,7 @@ Return: Incoming viewing key
 
 Description: To get payment address
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getzenpaymentaddress -d
+$ curl -X POST  https://api.acscan.net/wallet/getzenpaymentaddress -d
 '{
   "ivk":"8c7852e10862d8eec058635974f70f24c1f8d73819131bb5b54028d0a9408a03",
     "d":"736ba8692ed88a5473e009"
@@ -2491,7 +2491,7 @@ Return: Payment address
 
 Description: To create shielded transaction without using ask
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createshieldedtransactionwithoutspendauthsig -d
+$ curl -X POST  https://api.acscan.net/wallet/createshieldedtransactionwithoutspendauthsig -d
 '{
   "ivk":"8c7852e10862d8eec058635974f70f24c1f8d73819131bb5b54028d0a9408a03",
     "d":"736ba8692ed88a5473e009"
@@ -2522,7 +2522,7 @@ Return: Transaction object
 
 Description: To create shielded transaction without using ask
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createshieldedtransactionwithoutspendauthsig -d
+$ curl -X POST  https://api.acscan.net/wallet/createshieldedtransactionwithoutspendauthsig -d
 '{
     "ak": "bf051629fd8122cd9dd8591d72947b026c214cf7cdac1f68eff97179727d38e9",
     "nsk": "42963d26af8122204273fa3489d9efd6babf1f7179ff193c955a1f3d9c2df10c",
@@ -2590,7 +2590,7 @@ Return: Transaction object
 
 Description: To get all the notes by ivk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/scannotebyivk -d
+$ curl -X POST  https://api.acscan.net/wallet/scannotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -2612,7 +2612,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To get all the notes with spent status by ivk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/scanandmarknotebyivk -d
+$ curl -X POST  https://api.acscan.net/wallet/scanandmarknotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -2640,7 +2640,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To get all the notes by ovk
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/scannotebyovk -d
+$ curl -X POST  https://api.acscan.net/wallet/scannotebyovk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -2662,7 +2662,7 @@ Note: Range limit (end_block_index - start_block_index <= 1000)
 
 Description: To get a random commitment trapdoor
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getrcm
+$ curl -X GET  https://api.acscan.net/wallet/getrcm
 ```
 
 Parameter: No Parameter
@@ -2673,7 +2673,7 @@ Return: A random commitment trapdoor
 
 Description: To get a merkle tree infromation of a note
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getmerkletreevoucherinfo -d
+$ curl -X POST  https://api.acscan.net/wallet/getmerkletreevoucherinfo -d
 '{
   "out_points":[{
     "hash":"185b3e085723f5862b3a3c3cf54d52f5c1eaf2541e3a1e0ecd08bc12cd958d74",
@@ -2690,7 +2690,7 @@ Return: A merkle tree of a note
 
 Description: To check whether a note is spent or not
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/isspend -d
+$ curl -X POST  https://api.acscan.net/wallet/isspend -d
 '{
     "ak": "a3e65d509b675aaa2aeda977ceff11eebd76218079b6f543d78a615e396ca129",
     "nk": "62cfda9bea09a53cf2a21022057913734a8458969e11e0bb9c59ead48fbce83e",
@@ -2720,7 +2720,7 @@ Return: Note status
 
 Description: To create a signature for a transaction
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createspendauthsig -d
+$ curl -X POST  https://api.acscan.net/wallet/createspendauthsig -d
 '{
     "ask": "e3ebcba1531f6d9158d9c162660c5d7c04dadf77d85d7436a9c98b291ff69a09",
     "tx_hash": "3b78fee6e956f915ffe082284c5f18640edca9c57a5f227e5f7d7eb65ad61502",
@@ -2740,7 +2740,7 @@ Return: A signature
 
 Description: To create a shielded nullifier
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/createshieldnullifier -d
+$ curl -X POST  https://api.acscan.net/wallet/createshieldnullifier -d
 '{
     "note": {
         "payment_address": "ztron1aqgauawtkelxfu2w6s48cwh0mchjt6kwpj44l4wym3pullx0294j4r4v7kpm75wnclzycsw73mq",
@@ -2774,7 +2774,7 @@ Return: A shielded nullifier
 
 Description: To get a shielded transaction hash
 ```console
-$ curl -X POST  http://127.0.0.1:8090/wallet/getshieldtransactionhash -d
+$ curl -X POST  https://api.acscan.net/wallet/getshieldtransactionhash -d
 '{
     "txID": "de639a64497d86bb27e34a2953093a0cc488ec4c7bc9624ac5857d3799748595",
     "raw_data": {
@@ -2851,7 +2851,7 @@ Return: Transaction object
 
 Description: To get new shieldedAddress
 ```console
-$ curl -X GET  http://127.0.0.1:8090/wallet/getnewshieldedaddress
+$ curl -X GET  https://api.acscan.net/wallet/getnewshieldedaddress
 ```
 
 Parameter: No Parameter
@@ -2880,7 +2880,7 @@ Return: payment address
 
 Description: create the shielded TRC-20 transaction parameters, which has three types: mint, transfer and burn
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/createshieldedcontractparameters -d
+demo: curl -X POST  https://api.acscan.net/wallet/createshieldedcontractparameters -d
 '{  
     "ask": "0f63eabdfe2bbfe08012f6bb2db024e6809c16e8ed055aa41a6095424f192005",
     "nsk": "cd43d722fd4b6b01f19449ea826c3e935609648520fcc2a95c0026f0fa9ee404",
@@ -2921,7 +2921,7 @@ Note: the input parameters will differ according to the variety of shielded TRC-
 
 Description: create the shielded TRC-20 transaction parameters without Ask, which has three types: mint, transfer and burn
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/createshieldedcontractparameterswithoutask -d
+demo: curl -X POST  https://api.acscan.net/wallet/createshieldedcontractparameterswithoutask -d
 '{
     "ovk": "cd361834b3adc06f130de24f7d0c18f92a093cc885d9ce492cc6c02071f7a4f0",
     "from_amount": "5000",
@@ -2955,7 +2955,7 @@ Note: the input parameters will differ according to the variety of shielded TRC-
 
 Description: scan the shielded TRC-20 notes by ivk and mark their status of whether spent
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/scanshieldedtrc20notesbyivk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyivk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -2989,7 +2989,7 @@ Note: block limit（end_block_index - start_block_index <= 1000）
 
 Description: scan the shielded TRC-20 notes by ovk
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -3017,7 +3017,7 @@ Note: block limit（end_block_index - start_block_index <= 1000）
 
 Description: check the status whether the specified shielded TRC-20 note is spent
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d
 '{
    "note": {
        "value": 40,
@@ -3052,7 +3052,7 @@ Note: the `value` in note is the scaled value by `scalingFactor` set in the shie
 
 Description: get the trigger input data of shielded TRC-20 contract for the shielded TRC-20 parameters without spend authority signature.
 ```console
-demo: curl -X POST  http://127.0.0.1:8090/wallet/gettriggerinputforshieldedtrc20contract -d
+demo: curl -X POST  https://api.acscan.net/wallet/gettriggerinputforshieldedtrc20contract -d
 '{  
      "shielded_TRC20_Parameters": {"spend_description": [{"value_commitment": "e3fcc8609ff6a4b00b77a00ef624f305cec5f55cc7312ff5526d0b3057f2ef9e","anchor": "4c9cbebece033dc1d253b93e4a3682187daae4f905515761d10287b801e69816","nullifier": "74edce8798a3976ee41e045bb666f3a121c27235b0f1b44b3456d2c84bc725dc","rk": "9dcf4254aa7c4fb7c8bc6956d4b0c7c6c87c37a2552e7bf4e60c12cb5bc6c8cd","zkproof": "9926045cd1442a7d20153e6abda9f77a6526895f0a29a57cb1bc76ef6b7cacef2d0f4c94aa97c3acacdb95cabb065057b7edb4cbea098149a8aa7114a6a6b340c58007ac64b64e592eb18fdd299de5962a2a32ab0caebb2ab198704c751a9d0e143d68a50257d7c9e2230a7420fa46450299fd167141367e201726532d8e815413d8571d6c8c12937674dec92caf1f4583ebe560ac4c7eba290deee0a1c0da5f72c0b9df89fb3b338c683b654b3dc2373a4c2a4fef7f4fa489b44405fb7d2bfb"}],"binding_signature": "11e949887d9ec92eb32c78f0bc48afdc9a16a2ecbd5a0eca1be070fb900eeda347918bd6e9521d4baf1f74963bee0c1956559623a9e7cbc886941b227341ea06","message_hash": "7e6a00736c4f9e0036cb74c7fa3b1e3cd8f6bf0f038edeb03b668c4c5536a357","parameter_type": "burn"},
      "spend_authority_signature": [
@@ -3081,7 +3081,7 @@ Return: the input data for triggering shielded TRC-20 contract.
 
 wallet/marketsellasset    
 Description：Create an market order 
-demo: curl -X POST  http://127.0.0.1:8090/wallet/marketsellasset -d 
+demo: curl -X POST  https://api.acscan.net/wallet/marketsellasset -d 
 '{
     "owner_address": "4184894b42f66dce8cb84aec2ed11604c991351ac8",
     "sell_token_id": "5f",
@@ -3101,7 +3101,7 @@ Return：Transaction object
 
 wallet/marketcancelorder    
 Description：Cancel the order
-demo: curl -X POST  http://127.0.0.1:8090/wallet/marketcancelorder -d 
+demo: curl -X POST  https://api.acscan.net/wallet/marketcancelorder -d 
 '{
     "owner_address": "4184894b42f66dce8cb84aec2ed11604c991351ac8",
     "order_id": "0a7af584a53b612bcff1d0fc86feab05f69bc4528f26a4433bb344d453bd6eeb"
@@ -3113,7 +3113,7 @@ Return：Transaction object
 
 wallet/getmarketorderbyaccount    
 Description：Get all orders for the account
-demo: curl -X POST  http://127.0.0.1:8090/wallet/getmarketorderbyaccount -d 
+demo: curl -X POST  https://api.acscan.net/wallet/getmarketorderbyaccount -d 
 '{
     "value": "4184894b42f66dce8cb84aec2ed11604c991351ac8" 
 }'   
@@ -3123,13 +3123,13 @@ Return：order list
 
 wallet/getmarketpairlist     
 Description：Get all trading pairs
-demo: curl -X get  http://127.0.0.1:8090/wallet/getmarketpairlist  
+demo: curl -X get  https://api.acscan.net/wallet/getmarketpairlist  
 Parameter：  none
 Return：makket pair list
 
 wallet/getmarketorderlistbypair   
 Description：Get all orders for the trading pair
-demo: curl -X POST  http://127.0.0.1:8090/wallet/getmarketorderlistbypair -d 
+demo: curl -X POST  https://api.acscan.net/wallet/getmarketorderlistbypair -d 
 '{
     "sell_token_id": "5f" ,
     "buy_token_id": "31303030303031"
@@ -3141,7 +3141,7 @@ Return：order list
 
 wallet/getmarketpricebypair    
 Description：Get all prices for the trading pair
-demo: curl -X POST  http://127.0.0.1:8090/wallet/getmarketpricebypair -d 
+demo: curl -X POST  https://api.acscan.net/wallet/getmarketpricebypair -d 
 '{
     "sell_token_id": "5f" 
     "buy_token_id": "31303030303031" 
@@ -3153,7 +3153,7 @@ Return：price list
 
 wallet/getmarketorderbyid    
 Description：Get all orders for the account
-demo: curl -X POST  http://127.0.0.1:8090/wallet/getmarketorderbyid -d 
+demo: curl -X POST  https://api.acscan.net/wallet/getmarketorderbyid -d 
 '{
     "value": "orderid" 
 }'   
@@ -3163,6 +3163,6 @@ Return：order
 
 wallet/getburntrx     
 Description：Get burn trx amount
-demo: curl -X get  http://127.0.0.1:8090/wallet/getburntrx  
+demo: curl -X get  https://api.acscan.net/wallet/getburntrx  
 Parameter：  none
 Return：burn trx amount
