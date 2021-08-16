@@ -87,9 +87,7 @@
         
             <li><a class="toctree-l4" href="#api-index">API Index</a></li>
         
-            <li><a class="toctree-l4" href="#hexstring-and-base58check-transcode-demo">HexString and Base58check Transcode Demo</a></li>
-        
-            <li><a class="toctree-l4" href="#soliditynode-api">SolidityNode API</a></li>
+            <li><a class="toctree-l4" href="#soliditynode-api-and-fullnode-api">SolidityNode API and FullNode API</a></li>
         
             <li><a class="toctree-l4" href="#fullnode-api">FullNode API</a></li>
         
@@ -602,11 +600,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="hexstring-and-base58check-transcode-demo">HexString and Base58check Transcode Demo<a class="headerlink" href="#hexstring-and-base58check-transcode-demo" title="Permanent link">&para;</a></h2>
-<p>JAVA:
-<a href="https://github.com/tronprotocol/wallet-cli/blob/master/src/main/java/org/tron/demo/TransactionSignDemo.java#L92">GH tronprotocol/wallet-cli/src/main/java/org/tron/demo/TransactionSignDemo.java#L92</a></p>
-<p>PHP:
-<a href="https://github.com/tronprotocol/Documentation/blob/master/TRX_CN/index.php">GH: tronprotocol/Documentation/TRX_CN/index.php</a></p>
 <h3 id="the-visible-parameter">The visible parameter<a class="headerlink" href="#the-visible-parameter" title="Permanent link">&para;</a></h3>
 <p>Since v3.6, parameter <code>visible</code> is added. When <code>visible</code> is set true, there's no need to transcode the relevant address and string. This parameter is valid for all API, including solidityNode api and FullNode api.</p>
 <p>When <code>visible</code> is set true, the format of the input address must be base58check, input string must text string, so does the format of the output. If <code>visible</code> is set false or null, the api acts the same as previous version. If the format of the parameters do not match with the set of visible, it will throw out an error.</p>
@@ -633,13 +626,12 @@
 <p>For HTTP GET API: By adding <code>visible</code> parameter in the url, as method 1.</p>
 </li>
 </ol>
-<h2 id="soliditynode-api">SolidityNode API<a class="headerlink" href="#soliditynode-api" title="Permanent link">&para;</a></h2>
-<p>SolidityNode api's default HTTP port is 8091, when solidityNode is started, http service will be started too.</p>
+<h2 id="soliditynode-api-and-fullnode-api">SolidityNode API and FullNode API<a class="headerlink" href="#soliditynode-api-and-fullnode-api" title="Permanent link">&para;</a></h2>
 <ul>
-<li>/walletsolidity/getaccount</li>
+<li>/wallet/getaccount</li>
 </ul>
 <p>Description: Query an account information
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getaccount -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getaccount -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;address&quot;: &quot;41E552F6487585C2B58BC2C9BB4492BC1F17132CD0&quot;</span>
 <span class="go">}&#39;</span>
@@ -647,26 +639,26 @@
 <p>Parameter address: Default hexString</p>
 <p>Return: Account object</p>
 <ul>
-<li>walletsolidity/listwitnesses</li>
+<li>wallet/listwitnesses</li>
 </ul>
 <p>Description: Qyery the list of the witnesses
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/walletsolidity/listwitnesses
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/wallet/listwitnesses
 </code></pre></div></p>
 <p>Parameter: No parameter</p>
 <p>Return: The list of all the witnesses</p>
 <ul>
-<li>/walletsolidity/getassetissuelist</li>
+<li>/wallet/getassetissuelist</li>
 </ul>
 <p>Description: Query the list of all the tokens
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/walletsolidity/getassetissuelist
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/wallet/getassetissuelist
 </code></pre></div></p>
 <p>Parameter: No parameter</p>
 <p>Return: The list of all the tokens</p>
 <ul>
-<li>/walletsolidity/getpaginatedassetissuelist</li>
+<li>/wallet/getpaginatedassetissuelist</li>
 </ul>
 <p>Description: Query the list of all the tokens by pagination
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getpaginatedassetissuelist -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getpaginatedassetissuelist -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;offset&quot;: 0,</span>
 <span class="go">    &quot;limit&quot;: 10</span>
@@ -676,10 +668,10 @@
 <p>Parameter limit: the amount of tokens per page</p>
 <p>Return: The list of tokens by pagination</p>
 <ul>
-<li>/walletsolidity/getassetissuebyname(Since Odyssey-v3.2)</li>
+<li>/wallet/getassetissuebyname(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query a token by token name
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyname -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getassetissuebyname -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;44756354616E&quot;</span>
 <span class="go">}&#39;</span>
@@ -688,10 +680,10 @@
 <p>Return: Token object</p>
 <p>Note: Since Odyssey-v3.2, getassetissuebyid or getassetissuelistbyname is recommended, as since v3.2, token name can be repeatable. If the token name you query is not unique, this api will throw out an error</p>
 <ul>
-<li>/walletsolidity/getassetissuelistbyname(Since Odyssey-v3.2)</li>
+<li>/wallet/getassetissuelistbyname(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query the list of tokens by name
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getassetissuelistbyname -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getassetissuelistbyname -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;44756354616E&quot;</span>
 <span class="go">}&#39;</span>
@@ -699,10 +691,10 @@
 <p>Parameter value: Token name, default hexString</p>
 <p>Return: The list of tokens</p>
 <ul>
-<li>/walletsolidity/getassetissuebyid(Since Odyssey-v3.2)</li>
+<li>/wallet/getassetissuebyid(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query a token by token id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getassetissuebyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;1000001&quot;</span>
 <span class="go">}&#39;</span>
@@ -710,18 +702,18 @@
 <p>Parameter value: Token id</p>
 <p>Return: Token object</p>
 <ul>
-<li>/walletsolidity/getnowblock</li>
+<li>/wallet/getnowblock</li>
 </ul>
 <p>Description: Query the latest block information
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/walletsolidity/getnowblock
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/wallet/getnowblock
 </code></pre></div></p>
 <p>Parameter: No parameter</p>
 <p>Return: the latest block from solidityNode</p>
 <ul>
-<li>/walletsolidity/getblockbynum</li>
+<li>/wallet/getblockbynum</li>
 </ul>
 <p>Description: Query a block information by block height
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getblockbynum -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getblockbynum -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;num&quot;: 100</span>
 <span class="go">}&#39;</span>
@@ -729,10 +721,10 @@
 <p>Parameter num: Block height</p>
 <p>Return: Block information</p>
 <ul>
-<li>/walletsolidity/gettransactionbyid</li>
+<li>/wallet/gettransactionbyid</li>
 </ul>
 <p>Description: Query an transaction infromation by transaction id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/gettransactionbyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/gettransactionbyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2&quot;</span>
 <span class="go">}&#39;</span>
@@ -740,10 +732,10 @@
 <p>Parameter value: Transaction id</p>
 <p>Return: Transaction information</p>
 <ul>
-<li>/walletsolidity/gettransactioncountbyblocknum(Since Odyssey-v3.2)</li>
+<li>/wallet/gettransactioncountbyblocknum(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query th the number of transactions in a specific block
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/gettransactioncountbyblocknum -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/gettransactioncountbyblocknum -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;num&quot;: 100</span>
 <span class="go">}&#39;</span>
@@ -751,10 +743,10 @@
 <p>Parameter num: Block height</p>
 <p>Return: The number of transactions</p>
 <ul>
-<li>/walletsolidity/gettransactioninfobyblocknum(Since Odyssey-v3.7)</li>
+<li>/wallet/gettransactioninfobyblocknum(Since Odyssey-v3.7)</li>
 </ul>
 <p>Description: Query the list of transaction information in a specific block
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyblocknum -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyblocknum -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;num&quot;: 100</span>
 <span class="go">}&#39;</span>
@@ -762,10 +754,10 @@
 <p>Parameter num: Block height</p>
 <p>Return: The list of transaction information</p>
 <ul>
-<li>/walletsolidity/gettransactioninfobyid</li>
+<li>/wallet/gettransactioninfobyid</li>
 </ul>
 <p>Description: Query the transaction fee, block height by transaction id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2&quot;</span>
 <span class="go">}&#39;</span>
@@ -773,10 +765,10 @@
 <p>Parameter value: Transaction id</p>
 <p>Return: Transaction fee &amp; block height</p>
 <ul>
-<li>/walletsolidity/getdelegatedresource(Since Odyssey-v3.2)</li>
+<li>/wallet/getdelegatedresource(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query the energy delegation information
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresource -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getdelegatedresource -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;fromAddress&quot;: &quot;419844f7600e018fd0d710e2145351d607b3316ce9&quot;,</span>
 <span class="go">    &quot;toAddress&quot;: &quot;41c6600433381c731f22fc2b9f864b14fe518b322f&quot;</span>
@@ -786,10 +778,10 @@
 <p>Parameter toAddress: Energy to address, default hexString</p>
 <p>Return: Energy delegation information</p>
 <ul>
-<li>/walletsolidity/getdelegatedresourceaccountindex(Since Odyssey-v3.2)</li>
+<li>/wallet/getdelegatedresourceaccountindex(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query the energy delegation index by an account
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresourceaccountindex -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getdelegatedresourceaccountindex -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;419844f7600e018fd0d710e2145351d607b3316ce9&quot;</span>
 <span class="go">}&#39;</span>
@@ -797,10 +789,10 @@
 <p>Parameter value: Address, default hexString</p>
 <p>Return: Energy delegation index</p>
 <ul>
-<li>/walletsolidity/getexchangebyid(Since Odyssey-v3.2)</li>
+<li>/wallet/getexchangebyid(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query an exchange pair by exchange pair id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getexchangebyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getexchangebyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;id&quot;: 1</span>
 <span class="go">}&#39;</span>
@@ -808,18 +800,18 @@
 <p>Parameter id: Exchange pair id</p>
 <p>Return: Exchange pair object</p>
 <ul>
-<li>/walletsolidity/listexchanges(Since Odyssey-v3.2)</li>
+<li>/wallet/listexchanges(Since Odyssey-v3.2)</li>
 </ul>
 <p>Description: Query the list of all the exchange pairs
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/walletsolidity/listexchanges
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X GET  https://api.acscan.net/wallet/listexchanges
 </code></pre></div></p>
 <p>Parameter: No parameter</p>
 <p>Return: The list of all the exchange pairs</p>
 <ul>
-<li>/walletsolidity/getaccountbyid</li>
+<li>/wallet/getaccountbyid</li>
 </ul>
 <p>Description: Query an account information by account id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getaccountbyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getaccountbyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;account_id&quot;: &quot;6161616162626262&quot;</span>
 <span class="go">}&#39;</span>
@@ -827,10 +819,10 @@
 <p>Parameter account_id: Account id, default hexString</p>
 <p>Return: Account object</p>
 <ul>
-<li>/walletsolidity/getblockbyid</li>
+<li>/wallet/getblockbyid</li>
 </ul>
 <p>Description: Query a block information by block id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getblockbyid-d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getblockbyid-d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;0000000000038809c59ee8409a3b6c051e369ef1096603c7ee723c16e2376c73&quot;</span>
 <span class="go">}&#39;</span>
@@ -838,10 +830,10 @@
 <p>Parameter value: Block id</p>
 <p>Return: Block object</p>
 <ul>
-<li>/walletsolidity/getblockbylimitnext</li>
+<li>/wallet/getblockbylimitnext</li>
 </ul>
 <p>Description: Query a list of blocks by range
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getblockbylimitnext -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getblockbylimitnext -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;startNum&quot;: 1,</span>
 <span class="go">    &quot;endNum&quot;: 2</span>
@@ -851,10 +843,10 @@
 <p>Parameter endNum: The end block height, itself not included</p>
 <p>Return: The list of the blocks</p>
 <ul>
-<li>/walletsolidity/getblockbylatestnum</li>
+<li>/wallet/getblockbylatestnum</li>
 </ul>
 <p>Description: Query the several latest blocks
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getblockbylatestnum -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getblockbylatestnum -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;num&quot;: 5</span>
 <span class="go">}&#39;</span>
@@ -914,10 +906,10 @@
 <p>Parameter: No parameter</p>
 <p>Return: The node information</p>
 <ul>
-<li>/walletsolidity/getdeferredtransactionbyid</li>
+<li>/wallet/getdeferredtransactionbyid</li>
 </ul>
 <p>Description: Query the deferred transaction infromation by transaction id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactionbyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getdeferredtransactionbyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2&quot;</span>
 <span class="go">}&#39;</span>
@@ -925,10 +917,10 @@
 <p>Parameter value: transaction id</p>
 <p>Return: Deferred transaction object</p>
 <ul>
-<li>/walletsolidity/getdeferredtransactioninfobyid</li>
+<li>/wallet/getdeferredtransactioninfobyid</li>
 </ul>
 <p>Description: Query the deferred transaction fee, block height by transaction id
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactioninfobyid -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getdeferredtransactioninfobyid -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;value&quot;: &quot;309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2&quot;</span>
 <span class="go">}&#39;</span>
@@ -936,10 +928,10 @@
 <p>Parameter value: transaction id</p>
 <p>Return: Deferred transaction fee &amp; block height</p>
 <ul>
-<li>/walletsolidity/getmerkletreevoucherinfo</li>
+<li>/wallet/getmerkletreevoucherinfo</li>
 </ul>
 <p>Description: To get a merkle tree infromation of a note
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/getmerkletreevoucherinfo -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/getmerkletreevoucherinfo -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;out_points&quot;:[{</span>
 <span class="go">        &quot;hash&quot;:&quot;185b3e085723f5862b3a3c3cf54d52f5c1eaf2541e3a1e0ecd08bc12cd958d74&quot;,</span>
@@ -950,10 +942,10 @@
 <p>Parameter out_points: Note information</p>
 <p>Return: A merkle tree of a note</p>
 <ul>
-<li>/walletsolidity/scannotebyivk</li>
+<li>/wallet/scannotebyivk</li>
 </ul>
 <p>Description: To get all the notes by ivk
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/scannotebyivk -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/scannotebyivk -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;start_block_index&quot;: 0,</span>
 <span class="go">    &quot;end_block_index&quot;: 100,</span>
@@ -966,10 +958,10 @@
 <p>Return: Notes list</p>
 <p>Note: Range limit (end_block_index - start_block_index &lt;= 1000)</p>
 <ul>
-<li>/walletsolidity/scanandmarknotebyivk</li>
+<li>/wallet/scanandmarknotebyivk</li>
 </ul>
 <p>Description: To get all the notes with spent status by ivk
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/scanandmarknotebyivk -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/scanandmarknotebyivk -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;start_block_index&quot;: 0,</span>
 <span class="go">    &quot;end_block_index&quot;: 100,</span>
@@ -986,10 +978,10 @@
 <p>Return: Notes list</p>
 <p>Note: Range limit (end_block_index - start_block_index &lt;= 1000)</p>
 <ul>
-<li>/walletsolidity/scannotebyovk</li>
+<li>/wallet/scannotebyovk</li>
 </ul>
 <p>Description: To get all the notes by ovk
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/scannotebyovk -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/scannotebyovk -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;start_block_index&quot;: 0,</span>
 <span class="go">    &quot;end_block_index&quot;: 100,</span>
@@ -1002,10 +994,10 @@
 <p>Return: Notes list</p>
 <p>Note: Range limit (end_block_index - start_block_index &lt;= 1000)</p>
 <ul>
-<li>/walletsolidity/isspend</li>
+<li>/wallet/isspend</li>
 </ul>
 <p>Description: To check whether a note is spent or not
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/walletsolidity/isspend -d
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -X POST  https://api.acscan.net/wallet/isspend -d
 <span class="go">&#39;{</span>
 <span class="go">    &quot;ak&quot;: &quot;a3e65d509b675aaa2aeda977ceff11eebd76218079b6f543d78a615e396ca129&quot;,</span>
 <span class="go">    &quot;nk&quot;: &quot;62cfda9bea09a53cf2a21022057913734a8458969e11e0bb9c59ead48fbce83e&quot;,</span>
@@ -1025,10 +1017,10 @@
 <p>Parameter index: Note index</p>
 <p>Return: Note status</p>
 <ul>
-<li>/walletsolidity/scanshieldedtrc20notesbyivk</li>
+<li>/wallet/scanshieldedtrc20notesbyivk</li>
 </ul>
 <p>Description: scan the shielded TRC-20 notes by ivk and mark their status of whether spent
-<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyivk -d</span>
+<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyivk -d</span>
 <span class="go">&#39;{</span>
 <span class="go">    &quot;start_block_index&quot;: 9200,</span>
 <span class="go">    &quot;end_block_index&quot;: 9240,</span>
@@ -1048,10 +1040,10 @@
 <p>Return: notes list</p>
 <p>Note: block limit（end_block_index - start_block_index &lt;= 1000）</p>
 <ul>
-<li>/walletsolidity/scanshieldedtrc20notesbyovk</li>
+<li>/wallet/scanshieldedtrc20notesbyovk</li>
 </ul>
 <p>Description: scan the shielded TRC-20 notes by ovk
-<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d</span>
+<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d</span>
 <span class="go">&#39;{</span>
 <span class="go">    &quot;start_block_index&quot;: 9200,</span>
 <span class="go">    &quot;end_block_index&quot;: 9240,</span>
@@ -1067,9 +1059,9 @@
 <p>Return: notes list</p>
 <p>Note: block limit（end_block_index - start_block_index &lt;= 1000）</p>
 <ul>
-<li>/walletsolidity/isshieldedtrc20contractnotespent
+<li>/wallet/isshieldedtrc20contractnotespent
 Description: check the status whether the specified shielded TRC-20 note is spent
-<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d</span>
+<div class="highlight"><pre><span></span><code><span class="go">demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d</span>
 <span class="go">&#39;{</span>
 <span class="go">   &quot;note&quot;: {</span>
 <span class="go">       &quot;value&quot;: 40,</span>
