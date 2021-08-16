@@ -62,13 +62,7 @@
 |  getmarketorderbyid            |getchainparameters       |                       |
 |                                |getburntrx               |                       |
 
-## HexString and Base58check Transcode Demo
 
-JAVA:
-[GH tronprotocol/wallet-cli/src/main/java/org/tron/demo/TransactionSignDemo.java#L92](https://github.com/tronprotocol/wallet-cli/blob/master/src/main/java/org/tron/demo/TransactionSignDemo.java#L92)
-
-PHP:
-[GH: tronprotocol/Documentation/TRX_CN/index.php](https://github.com/tronprotocol/Documentation/blob/master/TRX_CN/index.php)
 
 ### The visible parameter
 
@@ -96,15 +90,15 @@ Ways to set the `visible` parameter:
 
 3. For HTTP GET API: By adding `visible` parameter in the url, as method 1.
 
-## SolidityNode API
+## SolidityNode API and FullNode API
 
-SolidityNode api's default HTTP port is 8091, when solidityNode is started, http service will be started too.
 
-- /walletsolidity/getaccount
+
+- /wallet/getaccount
 
 Description: Query an account information
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getaccount -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccount -d
 '{
     "address": "41E552F6487585C2B58BC2C9BB4492BC1F17132CD0"
 }'
@@ -114,33 +108,33 @@ Parameter address: Default hexString
 
 Return: Account object
 
-- walletsolidity/listwitnesses
+- wallet/listwitnesses
 
 Description: Qyery the list of the witnesses
 ```console
-$ curl -X GET  https://api.acscan.net/walletsolidity/listwitnesses
+$ curl -X GET  https://api.acscan.net/wallet/listwitnesses
 ```
 
 Parameter: No parameter
 
 Return: The list of all the witnesses
 
-- /walletsolidity/getassetissuelist
+- /wallet/getassetissuelist
 
 Description: Query the list of all the tokens
 ```console
-$ curl -X GET  https://api.acscan.net/walletsolidity/getassetissuelist
+$ curl -X GET  https://api.acscan.net/wallet/getassetissuelist
 ```
 
 Parameter: No parameter
 
 Return: The list of all the tokens
 
-- /walletsolidity/getpaginatedassetissuelist
+- /wallet/getpaginatedassetissuelist
 
 Description: Query the list of all the tokens by pagination
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getpaginatedassetissuelist -d
+$ curl -X POST  https://api.acscan.net/wallet/getpaginatedassetissuelist -d
 '{
     "offset": 0,
     "limit": 10
@@ -153,11 +147,11 @@ Parameter limit: the amount of tokens per page
 
 Return: The list of tokens by pagination
 
-- /walletsolidity/getassetissuebyname(Since Odyssey-v3.2)
+- /wallet/getassetissuebyname(Since Odyssey-v3.2)
 
 Description: Query a token by token name
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyname -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuebyname -d
 '{
     "value": "44756354616E"
 }'
@@ -169,11 +163,11 @@ Return: Token object
 
 Note: Since Odyssey-v3.2, getassetissuebyid or getassetissuelistbyname is recommended, as since v3.2, token name can be repeatable. If the token name you query is not unique, this api will throw out an error
 
-- /walletsolidity/getassetissuelistbyname(Since Odyssey-v3.2)
+- /wallet/getassetissuelistbyname(Since Odyssey-v3.2)
 
 Description: Query the list of tokens by name
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuelistbyname -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuelistbyname -d
 '{
     "value": "44756354616E"
 }'
@@ -183,11 +177,11 @@ Parameter value: Token name, default hexString
 
 Return: The list of tokens
 
-- /walletsolidity/getassetissuebyid(Since Odyssey-v3.2)
+- /wallet/getassetissuebyid(Since Odyssey-v3.2)
 
 Description: Query a token by token id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getassetissuebyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getassetissuebyid -d
 '{
     "value": "1000001"
 }'
@@ -197,22 +191,22 @@ Parameter value: Token id
 
 Return: Token object
 
-- /walletsolidity/getnowblock
+- /wallet/getnowblock
 
 Description: Query the latest block information
 ```console
-$ curl -X GET  https://api.acscan.net/walletsolidity/getnowblock
+$ curl -X GET  https://api.acscan.net/wallet/getnowblock
 ```
 
 Parameter: No parameter
 
 Return: the latest block from solidityNode
 
-- /walletsolidity/getblockbynum
+- /wallet/getblockbynum
 
 Description: Query a block information by block height
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbynum -d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbynum -d
 '{
     "num": 100
 }'
@@ -222,11 +216,11 @@ Parameter num: Block height
 
 Return: Block information
 
-- /walletsolidity/gettransactionbyid
+- /wallet/gettransactionbyid
 
 Description: Query an transaction infromation by transaction id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactionbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -236,11 +230,11 @@ Parameter value: Transaction id
 
 Return: Transaction information
 
-- /walletsolidity/gettransactioncountbyblocknum(Since Odyssey-v3.2)
+- /wallet/gettransactioncountbyblocknum(Since Odyssey-v3.2)
 
 Description: Query th the number of transactions in a specific block
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioncountbyblocknum -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioncountbyblocknum -d
 '{
     "num": 100
 }'
@@ -250,11 +244,11 @@ Parameter num: Block height
 
 Return: The number of transactions
 
-- /walletsolidity/gettransactioninfobyblocknum(Since Odyssey-v3.7)
+- /wallet/gettransactioninfobyblocknum(Since Odyssey-v3.7)
 
 Description: Query the list of transaction information in a specific block
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyblocknum -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyblocknum -d
 '{
     "num": 100
 }'
@@ -264,11 +258,11 @@ Parameter num: Block height
 
 Return: The list of transaction information
 
-- /walletsolidity/gettransactioninfobyid
+- /wallet/gettransactioninfobyid
 
 Description: Query the transaction fee, block height by transaction id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/gettransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/wallet/gettransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -278,11 +272,11 @@ Parameter value: Transaction id
 
 Return: Transaction fee & block height
 
-- /walletsolidity/getdelegatedresource(Since Odyssey-v3.2)
+- /wallet/getdelegatedresource(Since Odyssey-v3.2)
 
 Description: Query the energy delegation information
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresource -d
+$ curl -X POST  https://api.acscan.net/wallet/getdelegatedresource -d
 '{
     "fromAddress": "419844f7600e018fd0d710e2145351d607b3316ce9",
     "toAddress": "41c6600433381c731f22fc2b9f864b14fe518b322f"
@@ -295,11 +289,11 @@ Parameter toAddress: Energy to address, default hexString
 
 Return: Energy delegation information
 
-- /walletsolidity/getdelegatedresourceaccountindex(Since Odyssey-v3.2)
+- /wallet/getdelegatedresourceaccountindex(Since Odyssey-v3.2)
 
 Description: Query the energy delegation index by an account
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getdelegatedresourceaccountindex -d
+$ curl -X POST  https://api.acscan.net/wallet/getdelegatedresourceaccountindex -d
 '{
     "value": "419844f7600e018fd0d710e2145351d607b3316ce9"
 }'
@@ -309,11 +303,11 @@ Parameter value: Address, default hexString
 
 Return: Energy delegation index
 
-- /walletsolidity/getexchangebyid(Since Odyssey-v3.2)
+- /wallet/getexchangebyid(Since Odyssey-v3.2)
 
 Description: Query an exchange pair by exchange pair id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getexchangebyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getexchangebyid -d
 '{
     "id": 1
 }'
@@ -323,22 +317,22 @@ Parameter id: Exchange pair id
 
 Return: Exchange pair object
 
-- /walletsolidity/listexchanges(Since Odyssey-v3.2)
+- /wallet/listexchanges(Since Odyssey-v3.2)
 
 Description: Query the list of all the exchange pairs
 ```console
-$ curl -X GET  https://api.acscan.net/walletsolidity/listexchanges
+$ curl -X GET  https://api.acscan.net/wallet/listexchanges
 ```
 
 Parameter: No parameter
 
 Return: The list of all the exchange pairs
 
-- /walletsolidity/getaccountbyid
+- /wallet/getaccountbyid
 
 Description: Query an account information by account id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getaccountbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getaccountbyid -d
 '{
     "account_id": "6161616162626262"
 }'
@@ -348,11 +342,11 @@ Parameter account_id: Account id, default hexString
 
 Return: Account object
 
-- /walletsolidity/getblockbyid
+- /wallet/getblockbyid
 
 Description: Query a block information by block id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbyid-d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbyid-d
 '{
     "value": "0000000000038809c59ee8409a3b6c051e369ef1096603c7ee723c16e2376c73"
 }'
@@ -362,11 +356,11 @@ Parameter value: Block id
 
 Return: Block object
 
-- /walletsolidity/getblockbylimitnext
+- /wallet/getblockbylimitnext
 
 Description: Query a list of blocks by range
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbylimitnext -d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbylimitnext -d
 '{
     "startNum": 1,
     "endNum": 2
@@ -379,11 +373,11 @@ Parameter endNum: The end block height, itself not included
 
 Return: The list of the blocks
 
-- /walletsolidity/getblockbylatestnum
+- /wallet/getblockbylatestnum
 
 Description: Query the several latest blocks
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getblockbylatestnum -d
+$ curl -X POST  https://api.acscan.net/wallet/getblockbylatestnum -d
 '{
     "num": 5
 }'
@@ -464,11 +458,11 @@ Parameter: No parameter
 
 Return: The node information
 
-- /walletsolidity/getdeferredtransactionbyid
+- /wallet/getdeferredtransactionbyid
 
 Description: Query the deferred transaction infromation by transaction id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactionbyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getdeferredtransactionbyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -478,11 +472,11 @@ Parameter value: transaction id
 
 Return: Deferred transaction object
 
-- /walletsolidity/getdeferredtransactioninfobyid
+- /wallet/getdeferredtransactioninfobyid
 
 Description: Query the deferred transaction fee, block height by transaction id
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getdeferredtransactioninfobyid -d
+$ curl -X POST  https://api.acscan.net/wallet/getdeferredtransactioninfobyid -d
 '{
     "value": "309b6fa3d01353e46f57dd8a8f27611f98e392b50d035cef213f2c55225a8bd2"
 }'
@@ -492,11 +486,11 @@ Parameter value: transaction id
 
 Return: Deferred transaction fee & block height
 
-- /walletsolidity/getmerkletreevoucherinfo
+- /wallet/getmerkletreevoucherinfo
 
 Description: To get a merkle tree infromation of a note
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/getmerkletreevoucherinfo -d
+$ curl -X POST  https://api.acscan.net/wallet/getmerkletreevoucherinfo -d
 '{
     "out_points":[{
         "hash":"185b3e085723f5862b3a3c3cf54d52f5c1eaf2541e3a1e0ecd08bc12cd958d74",
@@ -509,11 +503,11 @@ Parameter out_points: Note information
 
 Return: A merkle tree of a note
 
-- /walletsolidity/scannotebyivk
+- /wallet/scannotebyivk
 
 Description: To get all the notes by ivk
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/scannotebyivk -d
+$ curl -X POST  https://api.acscan.net/wallet/scannotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -531,11 +525,11 @@ Return: Notes list
 
 Note: Range limit (end_block_index - start_block_index <= 1000)
 
-- /walletsolidity/scanandmarknotebyivk
+- /wallet/scanandmarknotebyivk
 
 Description: To get all the notes with spent status by ivk
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/scanandmarknotebyivk -d
+$ curl -X POST  https://api.acscan.net/wallet/scanandmarknotebyivk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -559,11 +553,11 @@ Return: Notes list
 
 Note: Range limit (end_block_index - start_block_index <= 1000)
 
-- /walletsolidity/scannotebyovk
+- /wallet/scannotebyovk
 
 Description: To get all the notes by ovk
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/scannotebyovk -d
+$ curl -X POST  https://api.acscan.net/wallet/scannotebyovk -d
 '{
     "start_block_index": 0,
     "end_block_index": 100,
@@ -581,11 +575,11 @@ Return: Notes list
 
 Note: Range limit (end_block_index - start_block_index <= 1000)
 
-- /walletsolidity/isspend
+- /wallet/isspend
 
 Description: To check whether a note is spent or not
 ```console
-$ curl -X POST  https://api.acscan.net/walletsolidity/isspend -d
+$ curl -X POST  https://api.acscan.net/wallet/isspend -d
 '{
     "ak": "a3e65d509b675aaa2aeda977ceff11eebd76218079b6f543d78a615e396ca129",
     "nk": "62cfda9bea09a53cf2a21022057913734a8458969e11e0bb9c59ead48fbce83e",
@@ -611,11 +605,11 @@ Parameter index: Note index
 
 Return: Note status
 
-- /walletsolidity/scanshieldedtrc20notesbyivk
+- /wallet/scanshieldedtrc20notesbyivk
 
 Description: scan the shielded TRC-20 notes by ivk and mark their status of whether spent
 ```console
-demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyivk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyivk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -645,11 +639,11 @@ Return: notes list
 Note: block limit（end_block_index - start_block_index <= 1000）
 
 
-- /walletsolidity/scanshieldedtrc20notesbyovk
+- /wallet/scanshieldedtrc20notesbyovk
 
 Description: scan the shielded TRC-20 notes by ovk
 ```console
-demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d
 '{
     "start_block_index": 9200,
     "end_block_index": 9240,
@@ -672,10 +666,10 @@ Return: notes list
 
 Note: block limit（end_block_index - start_block_index <= 1000）
 
-- /walletsolidity/isshieldedtrc20contractnotespent
+- /wallet/isshieldedtrc20contractnotespent
 Description: check the status whether the specified shielded TRC-20 note is spent
 ```console
-demo: curl -X POST  https://api.acscan.net/walletsolidity/scanshieldedtrc20notesbyovk -d
+demo: curl -X POST  https://api.acscan.net/wallet/scanshieldedtrc20notesbyovk -d
 '{
    "note": {
        "value": 40,
