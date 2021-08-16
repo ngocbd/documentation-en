@@ -3,4 +3,4 @@
 
 [https://tronprotocol.github.io/documentation-en/introduction](https://tronprotocol.github.io/documentation-en/introduction)    
 
-[Community Telegram Channel](https://t.me/troncoredevscommunity)     
+ 
